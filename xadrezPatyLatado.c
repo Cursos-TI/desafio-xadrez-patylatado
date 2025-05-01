@@ -1,3 +1,29 @@
+#include <stdio.h>
+void DIREITA (int n)
+{
+ if (n>0)
+  {
+   printf("direita  \n");
+   DIREITA (n-1);
+  }
+}
+void ESQUERDA (int m)
+{
+ if (m>0)
+  {
+   printf("esquerda  \n");
+   ESQUERDA (m-1);
+  }
+}
+void ACIMA (int k)
+{
+ if (k>0)
+  {
+   printf("acima  \n");
+   ACIMA(k-1);
+  }
+}
+int main()
 {
     int peça;
     printf("Qual peça você quer movimentar?\n");
@@ -6,38 +32,27 @@
     switch(peça)
     {
       case 1:
-       int i = 1;
-       while (i<=5)
-       {
-         printf("FRENTE\n");
-         i++;
-       }
-       break;
+       printf("*TORRE*\n");
+       DIREITA(5);
+      break;
       case 2:
-       i = 1;
-       do
-       {
-         printf("ESQUERDA\n");
-         i++;
-        }
-        while (i<=8);
-        break;
+       printf("*RAINHA*\n");
+       ESQUERDA(8);
+      break;
       case 3:
-       for (i=1; i<6; i++)
+       printf("*BISPO*\n");
+       for(int i=1; i<6; i++)
         {
-         printf("FRENTE, DIREITA\n");
+         DIREITA(1);
+         ACIMA(1);
         }
-        break;
+      break;
       case 4:
-       i = 1;
-       while (i<=2)
-       {
-         printf("CIMA\n");
-         i++;
-       }
-       printf("DIREITA");
-       break;
-     default:
+       printf("*CAVALO*\n");
+       ACIMA(2);
+       DIREITA(1);
+      break;
+      default:
       {
        printf("opção inválida");
       }
